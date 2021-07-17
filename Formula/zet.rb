@@ -14,6 +14,6 @@ class Zet < Formula
   test do
     (testpath/"foo.txt").write("1\n2\n3\n4\n5\n")
     (testpath/"bar.txt").write("1\n2\n4\n")
-    assert_equal "3/n5/n", shell_output("#{bin}/zet diff foo.txt bar.txt")
+    assert_equal "3\n5\n", shell_output("#{bin}/zet diff foo.txt bar.txt")
   end
 end
