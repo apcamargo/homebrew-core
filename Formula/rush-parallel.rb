@@ -9,7 +9,7 @@ class RushParallel < Formula
 
   def install
     ENV["GO111MODULE"] = "auto"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./rush"
+    system "go", "build", "-o", "rush"
   end
 
   test do
