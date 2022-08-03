@@ -15,6 +15,6 @@ class RushParallel < Formula
 
   test do
     assert_equal "01\n02\n03\n04\n",
-    shell_output("seq 1 4 | #{bin}/rush 'echo 0{}'")
+    shell_output("seq 1 4 | #{bin}/rush -k 'echo 0{}'")
   end
 end
