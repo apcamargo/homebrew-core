@@ -8,7 +8,8 @@ class RushParallel < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "auto"
+    system "go", "mod", "init", "rush"
+    system "go", "mod", "tidy"
     system "go", "build", *std_go_args(output: bin/"rush")
   end
 
