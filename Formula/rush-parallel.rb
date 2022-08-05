@@ -12,7 +12,11 @@ class RushParallel < Formula
   end
 
   test do
-    assert_equal "01\n02\n03\n04\n",
-    shell_output("seq 1 4 | #{bin}/rush -k 'echo 0{}'")
+    assert_equal <<~EOS, pipe_output("#{bin}/rush -k 'echo 0{}'", (1..4).to_a.join("\n"))
+      01
+      02
+      03
+      04
+    EOS
   end
 end
