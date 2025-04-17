@@ -13,7 +13,7 @@ class Brename < Formula
 
   test do
     touch "Homebrew-1.txt"
-    system bin/"brename", "-p", "'.*-(\d+).*'", "-r", "'$1.txt'"
+    system bin/"brename", "-p", "'.*-(\d+).*'", "-r", "'$1.txt'", "Homebrew-1.txt"
     refute_path_exists testpath/"Homebrew-1.txt"
     assert_path_exists testpath/"1.txt"
   end
