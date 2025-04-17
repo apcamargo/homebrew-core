@@ -13,13 +13,13 @@ class Brename < Formula
 
   test do
     (1..9).each do |n|
-      ("#{testpath}/Homebrew-#{n}.txt").write n.to_s
+      "#{testpath}/Homebrew-#{n}.txt".write n.to_s
     end
 
     system bin/"brename", "-p", "'.*-(\d+).*'", "-r", "'$1.txt'", "#{testpath}/*"
 
     (1..9).each do |n|
-      assert_equal n.to_s, ("#{testpath}/#{n}.txt").read
+      assert_equal n.to_s, "#{testpath}/#{n}.txt".read
       refute_path_exists "#{testpath}/Homebrew-#{n}.txt"
     end
   end
