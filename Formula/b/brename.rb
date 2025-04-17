@@ -16,7 +16,7 @@ class Brename < Formula
       (testpath/"Homebrew-#{n}.txt").write n.to_s
     end
 
-    system bin/"brename", "-p", ".*-(\\d+).*", "-r", "$1.txt", "#{testpath}/*"
+    system bin/"brename", "-p", ".*-(\\d+).*", "-r", "$1.txt", "-f", "#{testpath}/*"
 
     (1..9).each do |n|
       assert_equal n.to_s, (testpath/"#{n}.txt").read
